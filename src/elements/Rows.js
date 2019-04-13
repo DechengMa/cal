@@ -1,20 +1,23 @@
 import React from 'react';
-import { Modal, Button } from 'antd';
+import { Modal, Button ,Radio } from 'antd';
 class Rows extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			statusModal: false
+            statusModal: false,
+            status:['Working On','Stuck','Failed','Complete'],
+            modalValue:''
 		};
 	}
 
 	handleModalChange = () => {
 		this.setState(prevState => ({
 			statusModal: !prevState.statusModal
-		}));
+		})); 
 	};
 
-	handleOk = e => {
+	handleOk = (e) => {
+        console.log(e)
 		this.setState({
 			statusModal: false
 		});
@@ -24,7 +27,11 @@ class Rows extends React.Component {
 		this.setState({
 			statusModal: false
 		});
-	};
+    };
+    
+    handleChange = (e) => {
+        this.setState({})
+    }
 
 	render() {
 		const {
@@ -53,12 +60,11 @@ class Rows extends React.Component {
 						title={'Current Status: ' + this.props.status}
 						visible={this.state.statusModal}
 						onOk={this.handleOk}
-						onCancel={this.handleCancel}
-					>
-						<input type='button' value='Emergency' />
-						<input type='button' value='High' />
-						<input type='button' value='Medium' />
-						<input type='button' value='Low' />
+                        onCancel={this.handleCancel}
+                        okButtonProps={this.props.handleStatusChange}>   
+                            <Radio.Group defaultValue={this.props.status} onChange={this.handleChange} buttonStyle="solid">
+                                {this.state.status.map(status=>(<Radio.Button value={status} key={status}>{status}</Radio.Button>))}
+                            </Radio.Group>
 					</Modal>
 				</tr>
 			</tbody>

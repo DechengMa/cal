@@ -7,9 +7,13 @@ class Tasks extends React.Component{
         this.state={
             data :[{id:1,taskName:'cleaning house',taskFrom:'Damon',
                     assignedDate:'12-04-2019',dueDate:'12-05-2019',
-                    priority:'High',status:'working on',notes:'easy',
+                    priority:'High',status:'Working On',notes:'easy',
                     comments:['Good','very nice']}],
         }
+    }
+
+    handleStatusChange = (e) => {
+        console.log("running")
     }
 
 
@@ -28,7 +32,7 @@ class Tasks extends React.Component{
                             <th>Comments</th>
                         </tr>
                         </tbody>
-                        {this.state.data.map(e=>{return <Rows key = {e.id} {...e} />})}
+                        {this.state.data.map(e=>{return <Rows key = {e.id} {...e} handleStatusChange={this.handleStatusChange} />})}
                     </table>
             </div>)
     }
