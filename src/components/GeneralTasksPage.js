@@ -1,6 +1,8 @@
 import React from 'react';
 import { Tabs } from 'antd';
 import Tasks from '../elements/Tasks';
+import { Typography } from 'antd';
+
 const TabPane = Tabs.TabPane;
 class GenearlTasks extends React.Component {
 	constructor(props) {
@@ -11,7 +13,9 @@ class GenearlTasks extends React.Component {
 	render() {
 		return (
 			<div>
-				<h2>Genearl Tasks</h2>
+				<h1 style={{ textAlign: 'center' }}>
+					General Tasks
+				</h1>
 				<Tabs defaultActiveKey='1'>
 					<TabPane tab='My Tasks(Working On)' key='1'>
 						<Tasks />

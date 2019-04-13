@@ -1,2 +1,15 @@
 import React from 'react';
-export default ()=>( <div>This is header</div> )
+import './Header.css';
+import { Button } from 'antd';
+import { Link } from 'react-router-dom';
+
+export default () => (
+	<header className='header'>
+		{/* <Link to='/dashboard' class='site-logo' href='#'>
+			Clean Coms
+		</Link> */}
+		<Link to='/dashboard' className='site-logo'>
+			Clean Coms
+		</Link>
+	</header>
+);

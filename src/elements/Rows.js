@@ -6,7 +6,7 @@ class Rows extends React.Component {
 		this.state = {
             statusModal: false,
             status:['Working On','Stuck','Failed','Complete'],
-            modalValue:''
+            modalValue:this.props.status
 		};
 	}
 
@@ -21,6 +21,7 @@ class Rows extends React.Component {
 		this.setState({
 			statusModal: false
 		});
+		this.props.handleStatusChange(this.state.modalValue);
 	};
 
 	handleCancel = e => {
@@ -30,7 +31,7 @@ class Rows extends React.Component {
     };
     
     handleChange = (e) => {
-        this.setState({})
+        console.log(e)
     }
 
 	render() {
@@ -60,8 +61,7 @@ class Rows extends React.Component {
 						title={'Current Status: ' + this.props.status}
 						visible={this.state.statusModal}
 						onOk={this.handleOk}
-                        onCancel={this.handleCancel}
-                        okButtonProps={this.props.handleStatusChange}>   
+                        onCancel={this.handleCancel}>  
                             <Radio.Group defaultValue={this.props.status} onChange={this.handleChange} buttonStyle="solid">
                                 {this.state.status.map(status=>(<Radio.Button value={status} key={status}>{status}</Radio.Button>))}
                             </Radio.Group>
