@@ -11,16 +11,16 @@ import SalesTasksPage from '../components/SalesTasksPage';
 const history = createHistory();
 
 export default () => (
-    <Router history={history}>
-        <div>
-            <Header />
-            <Switch>
-                <Route path="/" component = {LoginPage} exact={true} />
-                <Route path="/dashboard"  component={DashBoardPage}/>
-                <Route path="/general-tasks-page" component={GeneralTasksPage}/>
-                <Route path="/sales-tasks-page" component={SalesTasksPage}/>
-                <Route component={NotFoundPage}/>
-            </Switch>
-        </div>
-    </Router>
-)
+	<Router history={history}>
+		<div>
+			<Header />
+			<Switch>
+				<Route path='/' component={LoginPage} exact={true} />
+				<Route path='/dashboard' component={DashBoardPage} />
+				<Route path='/general-tasks-page' component={GeneralTasksPage} />
+				<Route path='/sales-tasks-page' component={SalesTasksPage} />
+				<Route component={NotFoundPage} />
+			</Switch>
+		</div>
+	</Router>
+);
