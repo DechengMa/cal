@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tabs } from 'antd';
 import Tasks from '../elements/Tasks';
-import { Typography } from 'antd';
+import { Typography, Button } from 'antd';
 
 const TabPane = Tabs.TabPane;
 class GenearlTasks extends React.Component {
@@ -13,21 +13,19 @@ class GenearlTasks extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1 style={{ textAlign: 'center' }}>
-					General Tasks
-				</h1>
+				<h1 style={{ textAlign: 'center' }}>General Tasks</h1>
 				<Tabs defaultActiveKey='1'>
 					<TabPane tab='My Tasks(Working On)' key='1'>
 						<Tasks />
 					</TabPane>
 					<TabPane tab='Assign Tasks(Working On)' key='2'>
-						Content of Tab Pane 2
+						<Tasks type='assignTask' />
 					</TabPane>
 					<TabPane tab='My Tasks(Done)' key='3'>
-                        Content of Tab Pane 3
-                    </TabPane>
-                    <TabPane tab='Assign Tasks(Done)' key='4'>
-						Content of Tab Pane 4
+						<Tasks />
+					</TabPane>
+					<TabPane tab='Assign Tasks(Done)' key='4'>
+						<Tasks />
 					</TabPane>
 				</Tabs>
 			</div>
